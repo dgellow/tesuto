@@ -4,8 +4,8 @@
 
 # tesuto
 
-A really tiny test reporting library, only 829 bytes.
-The only dependency is [marak/colors.js](https://github.com/marak/colors.js/).
+A really tiny test reporting library, only 872 bytes.
+The only dependency is [dgellow/neocolor](https://github.com/dgellow/neocolor/), a really simple module for colored console output.
 
 ## Usage
 
