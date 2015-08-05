@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dgellow/tesuto.svg)](https://travis-ci.org/dgellow/tesuto)
+
 ![tesuto logo](http://i.imgur.com/orh29FB.png)
 
 # tesuto
