@@ -1,0 +1,26 @@
+{
+  "name": "tesuto",
+  "version": "0.0.2",
+  "description": "Tiny test reporting lib (829 bytes)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dgellow/tesuto.git"
+  },
+  "keywords": [
+    "test",
+    "testing",
+    "report",
+    "minimal",
+    "lightweight"
+  ],
+  "author": "Samuel El-Borai <samuel.elborai@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dgellow/tesuto/issues"
+  },
+  "homepage": "https://github.com/dgellow/tesuto"
+}
