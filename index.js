@@ -19,8 +19,8 @@ module.exports.report = function report(testName, testFn) {
     var line = match[1],
         char = match[2];
     counterFailure += 1;
-    console.error(c.red('FAILED') +' ' + c.blue(line + ':' + char));
-    console.error(c.red(e.message));
+    console.log(c.red('FAILED') +' ' + c.blue(line + ':' + char));
+    console.log(c.red(e.message));
     console.error(c.grey(e.stack));
   }
 };
