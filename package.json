@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/dgellow/tesuto",
   "dependencies": {
-    "colors": "^1.1.2"
+    "neocolor": "0.0.2"
   }
 }

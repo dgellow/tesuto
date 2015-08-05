@@ -1,5 +1,5 @@
 /*global require, module, process*/
-var c = require('colors/safe');
+var c = require('neocolor');
 
 var counterTotal = 0,
     counterSuccess = 0,
