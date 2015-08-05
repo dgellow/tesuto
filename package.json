@@ -4,7 +4,7 @@
   "description": "Tiny test reporting lib (829 bytes)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "sh test.sh"
   },
   "repository": {
     "type": "git",
