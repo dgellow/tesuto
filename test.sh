@@ -1,10 +1,35 @@
 ACTUAL_STDOUT=$(node test.js)
-EXPECTED_STDOUT=$(/bin/echo -e "\e[33madd success: \e[39m\e[32mOK\e[39m
-\e[33madd failure: \e[39m\e[31mFAILED\e[39m \e[34m27:10\e[39m
-\e[31m3 == 4\e[39m
-Total: 2
-Passed: 1
-Failed: 1")
+EXPECTED_STDOUT=$(/bin/echo -e \
+"^[[33mlong and short name methods are the same object: ^[[39m^[[32mOK^[[39m
+^[[33madd success: ^[[39m^[[32mOK^[[39m
+^[[33madd failure: ^[[39m^[[31mFAILED^[[39m ^[[34m28:10^[[39m
+^[[31m3 == 4^[[39m
+
+^[[33mone level nested tests^[[39m
+^[[33m——————————————————————^[[39m
+ ^[[33mnested test: ^[[39m^[[32mOK^[[39m
+
+^[[33mmultiple levels of nested tests^[[39m
+^[[33m———————————————————————————————^[[39m
+
+➽ ^[[33mfirst group level 1^[[39m
+  ^[[33m———————————————————^[[39m
+  ^[[33mnested test 1. 1: ^[[39m^[[32mOK^[[39m
+  ^[[33mnested test 1. 2: ^[[39m^[[32mOK^[[39m
+
+➽ ^[[33msecond group level 1^[[39m
+  ^[[33m————————————————————^[[39m
+  ^[[33mnested test 2.1: ^[[39m^[[32mOK^[[39m
+
+➽➽ ^[[33mgroup level 3^[[39m
+   ^[[33m—————————————^[[39m
+   ^[[33mnested test 2.2.1: ^[[39m^[[32mOK^[[39m
+   ^[[33mnested test 2.2.2: ^[[39m^[[32mOK^[[39m
+
+Total : 9
+Passed: 8
+Failed: 1
+")
 
 echo "___________"
 echo "echo --version"
