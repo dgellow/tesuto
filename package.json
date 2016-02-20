@@ -1,7 +1,7 @@
 {
   "name": "tesuto",
-  "version": "0.0.7",
-  "description": "Tiny test reporting lib (872 bytes)",
+  "version": "1.0.0",
+  "description": "Tiny test reporting lib",
   "main": "index.js",
   "scripts": {
     "test": "sh test.sh"
