@@ -5,7 +5,7 @@ var counterTotal = 0,
     counterSuccess = 0,
     counterFailure = 0;
 
-module.exports.report = function report(testName, testFn) {
+function report(testName, testFn) {
   try {
     counterTotal += 1;
     process.stdout.write(c.yellow(testName + ': '));
@@ -23,10 +23,17 @@ module.exports.report = function report(testName, testFn) {
     console.log(c.red(e.message));
     console.error(c.grey(e.stack));
   }
-};
+}
 
-module.exports.result = function result() {
+function result() {
   console.log('Total: ' + counterTotal);
   console.log('Passed: ' + counterSuccess);
   console.log('Failed: ' + counterFailure);
-};
+}
+
+// long names
+module.exports.report = report;
+module.exports.result = result;
+// short names
+module.exports.r = report;
+module.exports.res = result;
