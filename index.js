@@ -4,11 +4,16 @@ var c = require('neocolor');
 var counterTotal = 0,
     counterSuccess = 0,
     counterFailure = 0;
+var indent = 0,
+    testIndentChar = ' ',
+    groupIndentChar = '➽',
+    groupDecoration = '—';
 
 function report(testName, testFn) {
   try {
     counterTotal += 1;
-    process.stdout.write(c.yellow(testName + ': '));
+    var strIndent = testIndentChar.repeat(indent);
+    process.stdout.write(strIndent + c.yellow(testName + ': '));
     testFn();
     console.info(c.green('OK'));
     counterSuccess += 1;
@@ -25,14 +30,30 @@ function report(testName, testFn) {
   }
 }
 
+function testing(groupName, groupFn) {
+  var strIndent = indent > 0 ?
+        groupIndentChar.repeat(indent) + ' ' :
+        '';
+  var decoration = (indent > 0 ? ' '.repeat(indent + 1): '') +
+        groupDecoration.repeat(groupName.length);
+  console.log();
+  console.log(strIndent + c.yellow(groupName));
+  console.log(c.yellow(decoration));
+  indent += 1;
+  groupFn();
+  indent -= 1;
+}
+
 function result() {
-  console.log('Total: ' + counterTotal);
+  console.log();
+  console.log('Total : ' + counterTotal);
   console.log('Passed: ' + counterSuccess);
   console.log('Failed: ' + counterFailure);
 }
 
 // long names
 module.exports.report = report;
+module.exports.testing = testing;
 module.exports.result = result;
 // short names
 module.exports.r = report;
