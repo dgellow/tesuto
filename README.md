@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dgellow/tesuto.svg)](https://travis-ci.org/dgellow/tesuto)
+[![Build Status](https://travis-ci.org/dgellow/tesuto.svg)](https://travis-ci.org/dgellow/tesuto) [![npm version](https://badge.fury.io/js/tesuto.svg)](https://badge.fury.io/js/tesuto)
 
 ![tesuto logo](http://i.imgur.com/orh29FB.png)
 
