@@ -21,10 +21,16 @@ function report(testName, testFn) {
     var match = e.stack.match(new RegExp(
       "at.+" + module.parent.filename + ":(\\d+):(\\d+)"
     ));
-    var line = match[1],
-        char = match[2];
-    counterFailure += 1;
-    console.log(c.red('FAILED') +' ' + c.blue(line + ':' + char));
+
+    var msg = '';
+    if (match) {
+      var line = match[1],
+          char = match[2];
+      msg = line + ':' + char;
+    } else {
+      msg = '';
+    }
+    console.log(c.red('FAILED') +' ' + c.blue(msg));
     console.log(c.red(e.message));
     console.error(c.grey(e.stack));
   }
