@@ -1,6 +1,6 @@
 {
   "name": "tesuto",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tiny test reporting lib",
   "main": "index.js",
   "scripts": {
