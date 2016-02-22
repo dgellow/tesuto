@@ -67,4 +67,11 @@ t.testing("multiple levels of nested tests", function () {
   });
 });
 
+t.testing("tests defined in another module", function() {
+  var module1 = require("./module1");
+  t.report("test recursive function exceeding call stack size", function () {
+    module1.testModule();
+  });
+});
+
 t.result();
