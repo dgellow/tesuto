@@ -1,4 +1,4 @@
-ACTUAL_STDOUT=$(node test.js)
+ACTUAL_STDOUT=$(node test/test.js)
 EXPECTED_STDOUT=$(/bin/echo -e \
 "^[[33mlong and short name methods are the same object: ^[[39m^[[32mOK^[[39m
 ^[[33madd success: ^[[39m^[[32mOK^[[39m

@@ -1,6 +1,6 @@
 /*global require, process*/
 var assert = require('assert'),
-    t = require('./index');
+    t = require('../index');
 
 assert.equal(typeof t.report, 'function');
 assert.equal(typeof t.result, 'function');
