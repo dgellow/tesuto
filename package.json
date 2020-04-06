@@ -4,6 +4,9 @@
   "type": "module",
   "description": "Tiny test reporting library",
   "main": "index.js",
+  "exports": [
+    "index.js"
+  ],
   "scripts": {
     "test": "node runtests.js"
   },
