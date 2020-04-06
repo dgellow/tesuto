@@ -1,8 +1,12 @@
 import assert from "assert"
 import { spawnSync } from "child_process"
 import { realpathSync } from "fs"
+import { platform } from "os"
 
-const currentDirectory = realpathSync(".").replace(/\\/g, "/")
+let currentDirectory = realpathSync(".").replace(/\\/g, "/")
+if (platform() === "win32") {
+  currentDirectory = "/" + currentDirectory
+}
 
 const command = spawnSync("node", ["test/test.js"])
 // expect exit code to be number of failure
@@ -40,7 +44,7 @@ Total:  9
 Passed: 7
 Failed: 2
 `
-assert.equal(stdout, expectedStdout.replace(/__REPLACE_ME__/g, `file:///${currentDirectory}`))
+assert.equal(stdout, expectedStdout.replace(/__REPLACE_ME__/g, `file://${currentDirectory}`))
 
 const stderr = command.stderr.toString().replace(/^.+ExperimentalWarning: The ESM module loader is experimental.\n/, "") // ignore node warning
 const expectedStderr = `\u001b[90mAssertionError [ERR_ASSERTION]: 3 == 4
@@ -62,4 +66,4 @@ const expectedStderr = `\u001b[90mAssertionError [ERR_ASSERTION]: 3 == 4
     at recurse (__REPLACE_ME__/test/module1.js:4:2)\u001b[39m
 `
 
-assert.equal(stderr, expectedStderr.replace(/__REPLACE_ME__/g, `file:///${currentDirectory}`))
+assert.equal(stderr, expectedStderr.replace(/__REPLACE_ME__/g, `file://${currentDirectory}`))
