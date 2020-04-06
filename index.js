@@ -1,66 +1,66 @@
-/*global require, module, process*/
-var c = require('neocolor');
+import { yellow, green, red, blue, grey, white, bold, underline } from 'neocolor'
+import module from "module"
 
-var counterTotal = 0,
-    counterSuccess = 0,
-    counterFailure = 0;
-var indent = 0,
-    testIndentChar = ' ',
-    groupIndentChar = '➽',
-    groupDecoration = '—';
+let counterTotal = 0
+let counterSuccess = 0
+let counterFailure = 0
 
-function report(testName, testFn) {
-  try {
-    counterTotal += 1;
-    var strIndent = testIndentChar.repeat(indent);
-    process.stdout.write(strIndent + c.yellow(testName + ': '));
-    testFn();
-    console.info(c.green('OK'));
-    counterSuccess += 1;
-  } catch(e) {
-    var match = e.stack.match(new RegExp(
-      "at.+" + module.parent.filename + ":(\\d+):(\\d+)"
-    ));
+let indent = 0
+const testIndentChar = '  '
+const groupIndentChar = ' '
+// const groupDecoration = '#'
 
-    var msg = '';
-    if (match) {
-      var line = match[1],
-          char = match[2];
-      msg = line + ':' + char;
-    } else {
-      msg = '';
-    }
-    console.log(c.red('FAILED') +' ' + c.blue(msg));
-    console.log(c.red(e.message));
-    console.error(c.grey(e.stack));
-  }
+export function report(testName, testFn) {
+	try {
+		counterTotal += 1
+		const strIndent = testIndentChar.repeat(indent)
+		process.stdout.write(strIndent + white(testName + ': '))
+		testFn()
+		console.info(green('OK'))
+		counterSuccess += 1
+	} catch (e) {
+		// const match = e.stack.match(new RegExp(
+		// 	"at.+" + module.parent.filename + ":(\\d+):(\\d+)"
+		// ))
+		const stackLines = (new Error()).stack.split("\n")
+		let match = null
+		for (const i in stackLines) {
+			const stackLine = stackLines[i]
+			if (stackLine.match(new RegExp(`at (.+) \\(.+\\)$`)))
+				continue
+			match = stackLine.match(new RegExp(`at (.+):(\\d+):(\\d+)`))
+			if (match) break
+		}
+
+		console.log(bold(red('FAILED')))
+		if (match) {
+			const [_, filename, line, char] = match
+			console.log(`| loc\t${`${filename}:${line}:${char}`}`)
+		}
+		console.log(`| error\t${red(e.message)}`)
+		console.error(grey(e.stack))
+		counterFailure += 1
+	}
 }
 
-function testing(groupName, groupFn) {
-  var strIndent = indent > 0 ?
-        groupIndentChar.repeat(indent) + ' ' :
-        '';
-  var decoration = (indent > 0 ? ' '.repeat(indent + 1): '') +
-        groupDecoration.repeat(groupName.length);
-  console.log();
-  console.log(strIndent + c.yellow(groupName));
-  console.log(c.yellow(decoration));
-  indent += 1;
-  groupFn();
-  indent -= 1;
+export function testing(groupName, groupFn) {
+	const strIndent = indent > 0 ? groupIndentChar.repeat(indent) + ' ' : ''
+	console.log()
+	console.log(strIndent + underline(white(groupName)))
+	indent += 1
+	groupFn()
+	indent -= 1
 }
 
-function result() {
-  console.log();
-  console.log('Total : ' + counterTotal);
-  console.log('Passed: ' + counterSuccess);
-  console.log('Failed: ' + counterFailure);
+export function result() {
+	console.log()
+	console.log('Total:  ' + counterTotal)
+	console.log('Passed: ' + counterSuccess)
+	console.log('Failed: ' + counterFailure)
 }
 
-// long names
-module.exports.report = report;
-module.exports.testing = testing;
-module.exports.result = result;
-// short names
-module.exports.r = report;
-module.exports.res = result;
+export default {
+	report,
+	testing,
+	result,
+}

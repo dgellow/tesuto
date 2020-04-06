@@ -4,58 +4,55 @@
 
 # tesuto
 
-A really tiny test reporting library.
-The only dependency is [dgellow/neocolor](https://github.com/dgellow/neocolor/), a really simple module for colored console output.
+A really tiny test reporting library with [one unique dependency](https://github.com/dgellow/neocolor/).
+
+![console output example](assets/screenshot.png)
 
 ## Usage
 
-```js
-var assert = require('assert'),
-    t = require('tesuto');
+```typescript
+import assert from "assert"
+import {testing, report, result} from "tesuto
 
 function add (x, y) {
   return x + y;
 }
 
-# Report a test
-t.report("add numbers", function () {
+// Report a test
+report("add numbers", function () {
   assert.equal(add(1, 2), 3);
   assert.equal(add(2, 2), 4);
 });
 
-# Define a group of tests
-t.testing("add function", function () {
-  t.report("when first arg is a string, concatenate", function () {
+// Define a group of tests
+testing("add function", function () {
+  report("when first arg is a string, concatenate", function () {
     assert.equal(add("hello_", "you"), "hello_you");
     assert.equal(add("hello_", 2), "hello_2");
   });
 
-  # Groups can be nested
-  t.testing("with numbers", function() {
-    t.report("should be associative", function () {
+  // Groups can be nested
+  testing("with numbers", function() {
+    report("should be associative", function () {
       assert.equal(add(1, 2), 3);
       assert.equal(add(2, 1), 3);
     });
 
-    t.report("should support negative numbers", function () {
+    report("should support negative numbers", function () {
       assert.equal(add(-1, -2), -3);
       assert.equal(add(1, -2), -1);
     });
   });
 });
 
-t.result();
+result();
 ```
-
-## Output example
-
-![tesuto example](http://i.imgur.com/aOb285A.png?1)
 
 ## API
-### `report` (alias: `r`), define a test
+### `report`, define a test
 
-```
-t.report("add numbers", function () {
+```typescript
+report("add numbers", function () {
   assert.equal(add(1, 2), 3);
   assert.equal(add(2, 2), 4);
 });
@@ -65,17 +62,17 @@ t.report("add numbers", function () {
 
 > Note: Groups can be nested
 
-```
-t.testing("add function", function () {
-  t.report("when first arg is a string, concatenate", function () {
+```typescript
+testing("add function", function () {
+  report("when first arg is a string, concatenate", function () {
     assert.equal(add("hello_", "you"), "hello_you");
     assert.equal(add("hello_", 2), "hello_2");
   });
 });
 ```
 
-### `result` (alias: `res`), print statistics
+### `result`, print statistics
 
-```
-t.result();
+```typescript
+result();
 ```

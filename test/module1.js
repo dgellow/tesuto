@@ -1,10 +1,9 @@
-/*global require, module*/
-var assert = require('assert');
+import { equal } from 'assert';
 
 function recurse() {
-  recurse();
+	recurse();
 }
 
-module.exports.testModule = function() {
-  assert.equal(recurse(), "will fail");
-};
+export default function testModule() {
+	equal(recurse(), "will fail");
+}

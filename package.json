@@ -1,7 +1,8 @@
 {
   "name": "tesuto",
-  "version": "1.0.2",
-  "description": "Tiny test reporting lib",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Tiny test reporting library",
   "main": "index.js",
   "scripts": {
     "test": "node runtests.js"
@@ -15,6 +16,7 @@
     "testing",
     "report",
     "minimal",
+    "minimalist",
     "lightweight"
   ],
   "author": "Samuel El-Borai <samuel.elborai@gmail.com>",
@@ -24,6 +26,6 @@
   },
   "homepage": "https://github.com/dgellow/tesuto",
   "dependencies": {
-    "neocolor": "1.0.0"
+    "neocolor": "2.0.0"
   }
 }
