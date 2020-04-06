@@ -18,6 +18,10 @@ export function report(testName, testFn) {
 		console.log(bold(green("OK")))
 		counterSuccess += 1
 	} catch (e) {
+		if (!(e instanceof Error)) {
+			e = new Error(e)
+		}
+
 		const stackLines = (new Error()).stack.split("\n")
 		let match = null
 		for (const i in stackLines) {

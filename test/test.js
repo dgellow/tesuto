@@ -61,4 +61,16 @@ testing("tests defined in another module", function () {
 	})
 })
 
+testing("tests throwing values", function () {
+	report("throwing Error value", () => {
+		throw new Error("a test error")
+	})
+	report("throwing a string", () => {
+		throw "a string value used as error"
+	})
+	report("throwing a number", () => {
+		throw 1234
+	})
+})
+
 process.exit(result())
