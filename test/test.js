@@ -2,10 +2,6 @@ import { equal } from 'assert'
 import { report, result, testing } from '../index.js'
 import module1 from "./module1.js"
 
-equal(typeof report, 'function')
-equal(typeof result, 'function')
-equal(typeof testing, 'function')
-
 function add(x, y) {
 	return x + y
 }
@@ -65,4 +61,4 @@ testing("tests defined in another module", function () {
 	})
 })
 
-result()
+process.exit(result())

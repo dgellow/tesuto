@@ -1,5 +1,5 @@
-import { yellow, green, red, blue, grey, white, bold, underline } from 'neocolor'
-import module from "module"
+import { green, red, grey, white, bold, underline } from 'neocolor'
+import process from "process"
 
 let counterTotal = 0
 let counterSuccess = 0
@@ -16,7 +16,7 @@ export function report(testName, testFn) {
 		const strIndent = testIndentChar.repeat(indent)
 		process.stdout.write(strIndent + white(testName + ': '))
 		testFn()
-		console.info(green('OK'))
+		console.log(bold(green('OK')))
 		counterSuccess += 1
 	} catch (e) {
 		// const match = e.stack.match(new RegExp(
@@ -57,6 +57,7 @@ export function result() {
 	console.log('Total:  ' + counterTotal)
 	console.log('Passed: ' + counterSuccess)
 	console.log('Failed: ' + counterFailure)
+	return counterFailure
 }
 
 export default {

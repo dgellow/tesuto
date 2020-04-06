@@ -6,6 +6,12 @@
 
 A really tiny test reporting library with [one unique dependency](https://github.com/dgellow/neocolor/).
 
+```
+$ yarn add --dev tesuto
+
+$ npm install --save-dev tesuto
+```
+
 <img src="assets/screenshot.png" width="700">
 
 ## Usage
