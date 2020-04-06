@@ -76,25 +76,25 @@ const expectedStderr = `\u001b[90mAssertionError [ERR_ASSERTION]: 3 == 4
     at recurse (__REPLACE_ME__/test/module1.js:4:2)
     at recurse (__REPLACE_ME__/test/module1.js:4:2)\u001b[39m
 \u001b[90mError: a test error
-    at file:///C:/Users/Sam/Development/tesuto/test/test.js:66:9
-    at report (file:///C:/Users/Sam/Development/tesuto/index.js:17:3)
-    at file:///C:/Users/Sam/Development/tesuto/test/test.js:65:2
-    at testing (file:///C:/Users/Sam/Development/tesuto/index.js:51:2)
-    at file:///C:/Users/Sam/Development/tesuto/test/test.js:64:1
+    at __REPLACE_ME__/test/test.js:66:9
+    at report (__REPLACE_ME__/index.js:17:3)
+    at __REPLACE_ME__/test/test.js:65:2
+    at testing (__REPLACE_ME__/index.js:51:2)
+    at __REPLACE_ME__/test/test.js:64:1
     at ModuleJob.run (internal/modules/esm/module_job.js:110:37)
     at async Loader.import (internal/modules/esm/loader.js:176:24)\u001b[39m
 \u001b[90mError: a string value used as error
-    at report (file:///C:/Users/Sam/Development/tesuto/index.js:22:8)
-    at file:///C:/Users/Sam/Development/tesuto/test/test.js:68:2
-    at testing (file:///C:/Users/Sam/Development/tesuto/index.js:51:2)
-    at file:///C:/Users/Sam/Development/tesuto/test/test.js:64:1
+    at report (__REPLACE_ME__/index.js:22:8)
+    at __REPLACE_ME__/test/test.js:68:2
+    at testing (__REPLACE_ME__/index.js:51:2)
+    at __REPLACE_ME__/test/test.js:64:1
     at ModuleJob.run (internal/modules/esm/module_job.js:110:37)
     at async Loader.import (internal/modules/esm/loader.js:176:24)\u001b[39m
 \u001b[90mError: 1234
-    at report (file:///C:/Users/Sam/Development/tesuto/index.js:22:8)
-    at file:///C:/Users/Sam/Development/tesuto/test/test.js:71:2
-    at testing (file:///C:/Users/Sam/Development/tesuto/index.js:51:2)
-    at file:///C:/Users/Sam/Development/tesuto/test/test.js:64:1
+    at report (__REPLACE_ME__/index.js:22:8)
+    at __REPLACE_ME__/test/test.js:71:2
+    at testing (__REPLACE_ME__/index.js:51:2)
+    at __REPLACE_ME__/test/test.js:64:1
     at ModuleJob.run (internal/modules/esm/module_job.js:110:37)
     at async Loader.import (internal/modules/esm/loader.js:176:24)\u001b[39m
 `
