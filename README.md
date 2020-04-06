@@ -6,13 +6,13 @@
 
 A really tiny test reporting library with [one unique dependency](https://github.com/dgellow/neocolor/).
 
-![console output example](assets/screenshot.png)
+<img src="assets/screenshot.png" width="700">
 
 ## Usage
 
 ```typescript
 import assert from "assert"
-import {testing, report, result} from "tesuto
+import {testing, report, result} from "tesuto"
 
 function add (x, y) {
   return x + y;
