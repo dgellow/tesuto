@@ -1,4 +1,4 @@
-import { green, red, grey, white, bold, underline } from 'neocolor'
+import { green, red, grey, white, bold, underline } from "neocolor"
 import process from "process"
 
 let counterTotal = 0
@@ -6,22 +6,18 @@ let counterSuccess = 0
 let counterFailure = 0
 
 let indent = 0
-const testIndentChar = '  '
-const groupIndentChar = ' '
-// const groupDecoration = '#'
+const testIndentChar = "  "
+const groupIndentChar = " "
 
 export function report(testName, testFn) {
 	try {
 		counterTotal += 1
 		const strIndent = testIndentChar.repeat(indent)
-		process.stdout.write(strIndent + white(testName + ': '))
+		process.stdout.write(strIndent + white(testName + ": "))
 		testFn()
-		console.log(bold(green('OK')))
+		console.log(bold(green("OK")))
 		counterSuccess += 1
 	} catch (e) {
-		// const match = e.stack.match(new RegExp(
-		// 	"at.+" + module.parent.filename + ":(\\d+):(\\d+)"
-		// ))
 		const stackLines = (new Error()).stack.split("\n")
 		let match = null
 		for (const i in stackLines) {
@@ -32,7 +28,7 @@ export function report(testName, testFn) {
 			if (match) break
 		}
 
-		console.log(bold(red('FAILED')))
+		console.log(bold(red("FAILED")))
 		if (match) {
 			const [_, filename, line, char] = match
 			console.log(`| loc\t${`${filename}:${line}:${char}`}`)
@@ -44,7 +40,7 @@ export function report(testName, testFn) {
 }
 
 export function testing(groupName, groupFn) {
-	const strIndent = indent > 0 ? groupIndentChar.repeat(indent) + ' ' : ''
+	const strIndent = indent > 0 ? groupIndentChar.repeat(indent) + " " : ""
 	console.log()
 	console.log(strIndent + underline(white(groupName)))
 	indent += 1
@@ -54,9 +50,9 @@ export function testing(groupName, groupFn) {
 
 export function result() {
 	console.log()
-	console.log('Total:  ' + counterTotal)
-	console.log('Passed: ' + counterSuccess)
-	console.log('Failed: ' + counterFailure)
+	console.log("Total:  " + counterTotal)
+	console.log("Passed: " + counterSuccess)
+	console.log("Failed: " + counterFailure)
 	return counterFailure
 }
 
