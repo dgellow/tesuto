@@ -1,12 +1,15 @@
 {
   "name": "tesuto",
-  "version": "2.0.2",
-  "type": "module",
+  "version": "2.1.0",
   "description": "Tiny test reporting library",
-  "main": "./index.js",
-  "exports": "./index.js",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "node runtests.js"
+    "prepublish": "yarn build",
+    "build": "tsc -p .",
+    "test": "yarn build && node ./dist/runtests.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +29,13 @@
     "url": "https://github.com/dgellow/tesuto/issues"
   },
   "homepage": "https://github.com/dgellow/tesuto",
+  "devDependencies": {
+    "@types/diff": "^4.0.2",
+    "@types/node": "^13.11.0",
+    "diff": "^4.0.2",
+    "typescript": "^3.8.3"
+  },
   "dependencies": {
-    "neocolor": "2.0.0"
+    "neocolor": "^2.1.1"
   }
 }
