@@ -1,9 +1,7 @@
 import { equal } from 'assert';
-
 function recurse() {
-	recurse();
+    recurse();
 }
-
 export default function testModule() {
-	equal(recurse(), "will fail");
+    equal(recurse(), "will fail");
 }

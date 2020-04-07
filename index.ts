@@ -9,7 +9,7 @@ let indent = 0
 const testIndentChar = "  "
 const groupIndentChar = " "
 
-export function report(testName, testFn) {
+export function report(testName: string, testFn: () => void) {
 	try {
 		counterTotal += 1
 		const strIndent = testIndentChar.repeat(indent)
@@ -22,7 +22,7 @@ export function report(testName, testFn) {
 			e = new Error(e)
 		}
 
-		const stackLines = (new Error()).stack.split("\n")
+		const stackLines = (new Error()).stack!.split("\n")
 		let match = null
 		for (const i in stackLines) {
 			const stackLine = stackLines[i]
@@ -43,7 +43,7 @@ export function report(testName, testFn) {
 	}
 }
 
-export function testing(groupName, groupFn) {
+export function testing(groupName: string, groupFn: () => void) {
 	const strIndent = indent > 0 ? groupIndentChar.repeat(indent) + " " : ""
 	console.log()
 	console.log(strIndent + underline(white(groupName)))
@@ -52,7 +52,7 @@ export function testing(groupName, groupFn) {
 	indent -= 1
 }
 
-export function result() {
+export function result(): number {
 	console.log()
 	console.log("Total:  " + counterTotal)
 	console.log("Passed: " + counterSuccess)

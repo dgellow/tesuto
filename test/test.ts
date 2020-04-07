@@ -2,7 +2,7 @@ import { equal } from 'assert'
 import { report, result, testing } from '../index.js'
 import module1 from "./module1.js"
 
-function add(x, y) {
+function add(x: number, y: number) {
 	return x + y
 }
 
