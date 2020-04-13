@@ -13,7 +13,7 @@
 		// "sourceMap": true,                     /* Generates corresponding '.map' file. */
 		// "outFile": "./",                       /* Concatenate and emit output to single file. */
 		"outDir": "./dist", /* Redirect output structure to the directory. */
-		// "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+		"rootDir": "./src", /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
 		// "composite": true,                     /* Enable project compilation */
 		// "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
 		// "removeComments": true,                /* Do not emit comments to output. */
@@ -34,7 +34,7 @@
 		// "noUnusedLocals": true,                /* Report errors on unused locals. */
 		// "noUnusedParameters": true,            /* Report errors on unused parameters. */
 		// "noImplicitReturns": true,             /* Report error when not all code paths in function return a value. */
-		// "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
+		"noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
 		/* Module Resolution Options */
 		"moduleResolution": "node", /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
 		// "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
@@ -58,10 +58,7 @@
 		"forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
 	},
 	"include": [
-		"index.ts",
-		"runtests.ts",
-		"test/test.ts",
-		"test/module1.ts",
+		"src/*.ts",
 	],
 	"exclude": [
 		"node_modules",

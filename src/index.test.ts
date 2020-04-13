@@ -4,7 +4,6 @@ import { spawnSync } from "child_process"
 import path from "path"
 import url from "url"
 import diff from "diff"
-import { isConstructorDeclaration } from "typescript"
 import { exit } from "process"
 
 const currentDirectory = path.dirname(import.meta.url)
